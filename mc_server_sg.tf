@@ -1,5 +1,5 @@
-resource "aws_security_group" "MC_SERVER_SMALL_SG" {
-  name = "MC_SERVER_SMALL_SG"
+resource "aws_security_group" "MC_SERVER_SG" {
+  name = "MC_SERVER_SG"
 }
 
 resource "aws_security_group_rule" "MC_SERVER_INBOUND" {
@@ -8,7 +8,7 @@ resource "aws_security_group_rule" "MC_SERVER_INBOUND" {
   to_port           = 25565
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.MC_SERVER_SMALL_SG.id
+  security_group_id = aws_security_group.MC_SERVER_SG.id
 }
 
 resource "aws_security_group_rule" "MC_SERVER_OUTBOUND" {
@@ -17,7 +17,7 @@ resource "aws_security_group_rule" "MC_SERVER_OUTBOUND" {
   to_port           = 25565
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.MC_SERVER_SMALL_SG.id
+  security_group_id = aws_security_group.MC_SERVER_SG.id
 }
 
 resource "aws_security_group_rule" "SSH_INBOUND" {
@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "SSH_INBOUND" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.MC_SERVER_SMALL_SG.id
+  security_group_id = aws_security_group.MC_SERVER_SG.id
 }
 
 resource "aws_security_group_rule" "SSH_OUTBOUND" {
@@ -35,6 +35,6 @@ resource "aws_security_group_rule" "SSH_OUTBOUND" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.MC_SERVER_SMALL_SG.id
+  security_group_id = aws_security_group.MC_SERVER_SG.id
 }
 
