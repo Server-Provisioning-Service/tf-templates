@@ -1,6 +1,8 @@
-# Build for small Minecraft server
+# Server Type:    Minecraft
+# Server Size:    Small
+# Server Name:    <SERVER_NAME>
 
-resource "aws_instance" "MC_SERVER_SMALL" {
+resource "aws_instance" "<SERVER_NAME>" {
   ami                    = local.mc_server_ami
   instance_type          = local.mc_small_type
   vpc_security_group_ids = [aws_security_group.MC_SERVER_SG.id]
